@@ -14,7 +14,7 @@ function Navbar() {
     }
 
   return (
-    <div className='mx-auto w-full z-50 bg-white border'>
+    <div className='mx-auto w-full z-50 bg-white'>
         {
             openNav
             ? <OpenNav setOpenNav={setOpenNav} />
@@ -31,19 +31,19 @@ function Navbar() {
                 {/* Nav Buttons */}
                 <div className='flex items-center pl-5'>
                     <div className='hidden xl:flex items-center ml-4 xl:gap-8'>
-                        <a className='w-full block relative'>
+                        <a href='/sell' className='w-full block relative'>
                             <div className='flex justify-between'>
-                                <div className='flex items-center text-xl'>Sell</div>
+                                <div className='flex items-center text-xl hover:text-gray-700'>Sell</div>
                             </div>
                         </a>
-                        <a className='w-full block relative'>
+                        <a href='/buy' className='w-full block relative'>
                             <div className='flex justify-between'>
-                                <div className='flex items-center text-xl'>Buy</div>
+                                <div className='flex items-center text-xl hover:text-gray-700'>Buy</div>
                             </div>
                         </a>
-                        <a className='w-full block relative'>
+                        <a href='/rent' className='w-full block relative'>
                             <div className='flex justify-between'>
-                                <div className='flex items-center text-xl'>Rent</div>
+                                <div className='flex items-center text-xl hover:text-gray-700'>Rent</div>
                             </div>
                         </a>
                     </div>
@@ -63,13 +63,13 @@ function Navbar() {
 
                 <div className='flex items-center h-full'>
                     <a href={`/favorites/${user}`}
-                        className='flex h-full items-center font-bold'>
-                        <AiOutlineHeart size={'2.5em'}/>
-                        <p className='hidden xl:block text-xl pr-5'>My favorites</p>
+                        className='flex h-full items-center font-bold hover:text-gray-700'>
+                        <AiOutlineHeart size={'2em'}/>
+                        <p className='hidden xl:block text-xl pr-5 pl-2'>My favorites</p>
                     </a>
                     <a href={`/profile/${user}`}
-                        className='hidden xl:flex h-full items-center font-bold bg-gray-500 p-5 bg-gradient-to-b from-[#1abcfa] via-[#65deee] to-[#9af6e6]'>
-                        <FaUser size={'2em'} />
+                        className='hidden xl:flex h-full items-center font-bold bg-gray-500 p-5 bg-gradient-to-b from-[#1abcfa] via-[#65deee] to-[#9af6e6] hover:text-gray-700'>
+                        <FaUser size={'1.8em'} />
                         <p className='text-xl pl-2'> My account</p>
                     </a>
                 </div>
