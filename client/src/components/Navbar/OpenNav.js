@@ -12,7 +12,9 @@ function OpenNav({ setOpenNav }) {
             </div>
 
             {/* Logo */}
-            <div className='h-12 bg-black'/>
+            <div className='px-3'>
+                <div className='h-12 bg-logo2 bg-cover bg-center'/>
+            </div>
 
             {/* Nav buttons */}
             <div className='flex flex-col items-start p-5 gap-5'>

@@ -26,7 +26,7 @@ function Navbar() {
             <div className='flex items-center pl-5'>
 
                 {/* Logo */}
-                <a href='/' className='flex items-center bg-black w-12 h-12'/>
+                <a href='/' className='flex items-center bg-logo1 bg-cover bg-center w-12 h-12'/>
 
                 {/* Nav Buttons */}
                 <div className='flex items-center pl-5'>

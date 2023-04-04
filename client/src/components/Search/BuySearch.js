@@ -50,7 +50,7 @@ function BuySearch() {
 
         {/* Search Button */}
         <div className='flex justify-center items-center pb-5'>
-            <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] hover:text-gray-700'>
+            <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold'>
                 Search
             </button>
         </div>
