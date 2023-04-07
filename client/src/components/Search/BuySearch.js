@@ -10,17 +10,14 @@ function BuySearch() {
         <div className='flex gap-6'>
             <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
                 <input type='text' placeholder='Which city ? Area ?'
-                    className='bg-[#f5f9fc] outline-none flex-grow'>
-                </input>
+                    className='bg-[#f5f9fc] outline-none flex-grow'/>
                     <AiOutlineSearch size={'2em'}/>
                 
             </div>
             <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                <p></p>
                 <BsCurrencyDollar />
                 <input type='number' min='0' placeholder='0'
-                    className='bg-[#f5f9fc] outline-none flex-grow'>
-                </input>
+                    className='bg-[#f5f9fc] outline-none flex-grow'/>
                 <p className=''>Max budget</p>
             </div>
         </div>

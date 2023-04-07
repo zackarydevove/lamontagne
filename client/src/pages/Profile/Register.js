@@ -14,7 +14,7 @@ function Register() {
 
 
                 {/* Right login */}
-                <div className='w-full lg:w-1/2 p-28 bg-[#f9f9f9] h-full flex justify-center items-center'>
+                <div className='w-full lg:w-1/2 p-12 bg-[#f9f9f9] h-full flex justify-center items-center'>
                     <div className='w-full h-fit bg-white shadow-[0px_0px_10px_0px_rgba(0,0,0,0.1)]'>
                         <div className='flex justify-center items-center p-10'>
                             <h1 className='text-[#02408f] font-extrabold text-xl'>Create your Lamontagne account!</h1>
@@ -22,11 +22,23 @@ function Register() {
                         <div className='flex flex-col p-10 gap-5'>
                             <div className='bg-[#f5f9fc] p-3 flex'>
                                 <input className='bg-[#f5f9fc] w-full outline-none'></input>
+                                <p className='text-[#8c96ab] min-w-fit'>First Name</p>
+                            </div>
+                            <div className='bg-[#f5f9fc] p-3 flex'>
+                                <input className='bg-[#f5f9fc] w-full outline-none'></input>
+                                <p className='text-[#8c96ab] min-w-fit'>Last Name</p>
+                            </div>
+                            <div className='bg-[#f5f9fc] p-3 flex'>
+                                <input className='bg-[#f5f9fc] w-full outline-none'></input>
                                 <p className='text-[#8c96ab]'>Email</p>
                             </div>
                             <div className='bg-[#f5f9fc] p-3 flex'>
                                 <input className='bg-[#f5f9fc] w-full outline-none'></input>
                                 <p className='text-[#8c96ab]'>Password</p>
+                            </div>
+                            <div className='bg-[#f5f9fc] p-3 flex'>
+                                <input className='bg-[#f5f9fc] w-full outline-none'></input>
+                                <p className='text-[#8c96ab] min-w-fit'>Confirm Password</p>
                             </div>
 
                             <div className='flex'>

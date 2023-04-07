@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Search from '../../components/Search'
 import Footer from '../../components/Footer';
+import BuyingAdvice from '../../components/BuyingAdvice';
 import { BsTrophyFill } from 'react-icons/bs';
 import { FaMedal } from 'react-icons/fa';
 import { BiTransferAlt } from 'react-icons/bi';
@@ -82,6 +83,7 @@ function Home() {
             <p>AGENCIES</p>
           </div>
         </div>
+        <BuyingAdvice />
         <Footer />
     </div>
   )
