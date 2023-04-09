@@ -6,8 +6,10 @@ import MyProfile from '../../components/Profile/MyProfile';
 import MySell from '../../components/Profile/MySell';
 import MyFavorites from '../../components/Profile/MyFavorites';
 
-function Profile() {
-    const [selected, setSelected] = useState('profile');
+type SelectedTab = 'profile' | 'favorite' | 'sell'
+
+function Profile(): JSX.Element {
+    const [selected, setSelected] = useState<SelectedTab>('profile');
 
     const renderSearchComponent = () => {
         console.log('slected', selected);
@@ -24,8 +26,8 @@ function Profile() {
       };
 
   return (
-    <div>
-        <div className='h-screen flex flex-col'>
+    <div> 
+        <div className='h-screen flex flex-col '>
             <Navbar />
 
             <div className='flex-grow flex'>
@@ -65,7 +67,7 @@ function Profile() {
                 </div>
 
                 {/* Right */}
-                <div className='flex-grow'>
+                <div className='flex-grow h-full'>
                     {renderSearchComponent()}
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import HousePost from '../HousePost'
 
-function MyFavorites() {
+function MyFavorites(): JSX.Element {
   return (
     <div className='flex flex-col h-full'>
         {/* top */}
@@ -9,8 +9,7 @@ function MyFavorites() {
             <p className='text-xl pl-12 text-white font-bold'>My favorites</p>
         </div>
         {/* bottom */}
-        <div className='flex p-5 gap-5 overflow-y-scroll'>
-            
+        <div className='h-full flex flex-wrap p-5 gap-5 overflow-hidden'>
             {/* One house */}
             <HousePost/>
             <HousePost/>

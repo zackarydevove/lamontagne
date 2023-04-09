@@ -3,8 +3,10 @@ import { useState } from 'react';
 import BuySearch from './Search/BuySearch';
 import RentSearch from './Search/RentSearch';
 
-function Search() {
-    const [selected, setSelected] = useState('Buy');
+type selectedTab = 'Buy' | 'Rent';
+
+function Search(): JSX.Element {
+    const [selected, setSelected] = useState<selectedTab>('Buy');
 
     const renderSearchComponent = () => {
         switch (selected) {

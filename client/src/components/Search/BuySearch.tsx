@@ -2,7 +2,7 @@ import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { BsCurrencyDollar } from 'react-icons/bs';
 
-function RentSearch() {
+function BuySearch(): JSX.Element {
   return (
     <div className='p-7 px-10'>
 
@@ -10,16 +10,14 @@ function RentSearch() {
         <div className='flex gap-6'>
             <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
                 <input type='text' placeholder='Which city ? Area ?'
-                    className='bg-[#f5f9fc] outline-none flex-grow'>
-                </input>
+                    className='bg-[#f5f9fc] outline-none flex-grow'/>
                     <AiOutlineSearch size={'2em'}/>
+                
             </div>
             <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                <p></p>
                 <BsCurrencyDollar />
                 <input type='number' min='0' placeholder='0'
-                    className='bg-[#f5f9fc] outline-none flex-grow'>
-                </input>
+                    className='bg-[#f5f9fc] outline-none flex-grow'/>
                 <p className=''>Max budget</p>
             </div>
         </div>
@@ -44,7 +42,7 @@ function RentSearch() {
 
         {/* Good founded */}
         <div className='flex justify-center items-center py-5'>
-            <p className='text-xl text-gray-500'>3494 property founded!</p>
+            <p className='text-xl text-gray-500'>15394 property founded!</p>
         </div>
 
         {/* Search Button */}
@@ -57,4 +55,4 @@ function RentSearch() {
   )
 }
 
-export default RentSearch
+export default BuySearch

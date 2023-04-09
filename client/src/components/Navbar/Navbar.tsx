@@ -5,9 +5,14 @@ import { HiMenuAlt2 } from 'react-icons/hi'
 import { useState } from 'react'
 import OpenNav from './OpenNav'
 
-function Navbar() {
-    const [user, setUser] = useState({});
-    const [openNav, setOpenNav] = useState(false);
+interface User {
+    id: number;
+    name: string;
+}
+
+function Navbar(): JSX.Element {
+    const [user, setUser] = useState<User | null>(null);
+    const [openNav, setOpenNav] = useState<boolean>(false);
 
     const handleClick = () => {
         setOpenNav(prev => !prev);

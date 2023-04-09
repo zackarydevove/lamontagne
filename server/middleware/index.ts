@@ -1,8 +1,9 @@
+import { Application } from "express";
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const configureMiddleware = (app) => {
+const configureMiddleware = (app: Application): void => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(

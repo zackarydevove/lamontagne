@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 
-function HousePost() {
+function HousePost(): JSX.Element {
   return (
     <div className='flex flex-col w-[360px] h-[400px] shadow-[0px_0px_2px_0px_rgba(0,0,0,0.2)]'>
       {/* Top image */}

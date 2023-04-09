@@ -1,7 +1,11 @@
 import React from 'react'
 import { RxCross2 } from 'react-icons/rx'
 
-function OpenNav({ setOpenNav }) {
+interface OpenNavProps {
+    setOpenNav: (open: boolean) => void;
+}
+
+function OpenNav({ setOpenNav }: OpenNavProps) {
 
   return (
     <div className='absolute top-0 left-0 flex w-full h-screen max-h-screen z-[60] text-white'>

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer'
 
-function Login() {
+function Login(): JSX.Element {
   return (
     <div>
         <div className='flex flex-col h-screen'>

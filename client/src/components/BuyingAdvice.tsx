@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BuyingAdvice() {
+function BuyingAdvice(): JSX.Element {
   return (
     <div className='bg-[#f5f9fc] px-20 py-10 pb-20 flex flex-col text-[#013c84] font-bold items-center'>
         <div>

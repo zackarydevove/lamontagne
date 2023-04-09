@@ -8,7 +8,7 @@ import { FaMedal } from 'react-icons/fa';
 import { BiTransferAlt } from 'react-icons/bi';
 import { GiFrance } from 'react-icons/gi';
 
-function Home() {
+function Home(): JSX.Element {
   return (
     <div>
       <div className=' flex flex-col h-screen'>
