@@ -1,7 +1,9 @@
 import { Application } from "express";
-const dotenv = require('dotenv').config();
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
+dotenv.config();
 
 const configureMiddleware = (app: Application): void => {
   app.use(bodyParser.json());
@@ -14,4 +16,4 @@ const configureMiddleware = (app: Application): void => {
   );
 };
 
-module.exports = configureMiddleware;
+export default configureMiddleware;

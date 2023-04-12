@@ -1,29 +1,58 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyProfile from '../../components/Profile/MyProfile';
-import MySell from '../../components/Profile/MySell';
+import MySell from '../../components/Profile/MyListings';
 import MyFavorites from '../../components/Profile/MyFavorites';
+import { useNavigate } from 'react-router-dom';
+import { getUser } from '../../api/auth';
 
-type SelectedTab = 'profile' | 'favorite' | 'sell'
+type SelectedTab = 'profile' | 'favorite' | 'listing'
 
-function Profile(): JSX.Element {
-    const [selected, setSelected] = useState<SelectedTab>('profile');
+// Option preSelection if user click on Sell from the Navbar
+interface Props {
+    preSelected?: SelectedTab;
+}
+
+function Profile(props: Props): JSX.Element {
+    const [selected, setSelected] = useState<SelectedTab>(props.preSelected || 'profile');
+    const [user, setUser] = useState({});
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const res: {user: object, message: string} | null = await getUser();
+                if (res?.message !== 'User found') {
+                    navigate('/login');
+                } else {
+                    setUser(res.user);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    }, [])
 
     const renderSearchComponent = () => {
-        console.log('slected', selected);
         switch (selected) {
           case 'profile':
             return <MyProfile />;
           case 'favorite':
             return <MyFavorites />;
-            case 'sell':
+            case 'listing':
               return <MySell />;
           default:
             return null;
         }
       };
+
+      const handleLogout = () => {
+        localStorage.removeItem('jwtToken');
+        navigate('/');
+      }
 
   return (
     <div> 
@@ -51,16 +80,17 @@ function Profile(): JSX.Element {
                             <div className='ml-5 h-12 w-12 bg-black rounded-full'/>
                             <p className='px-10'>My favorites</p>
                         </div>
-                        <div className={`rounded-l-full ${selected === 'sell' ? 'bg-[#099bd6]' : ''} p-3 flex items-center hover:cursor-pointer`}
-                            onClick={() => setSelected('sell')}>
+                        <div className={`rounded-l-full ${selected === 'listing' ? 'bg-[#099bd6]' : ''} p-3 flex items-center hover:cursor-pointer`}
+                            onClick={() => setSelected('listing')}>
                             <div className='ml-5 h-12 w-12 bg-black rounded-full'/>
-                            <p className='px-10'>Sell / Rent my house</p>
+                            <p className='px-10'>My listing</p>
                         </div>
                     </div>
 
                     {/* Logout */}
                     <div className='flex justify-center items-center'>
-                        <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold'>
+                        <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold hover:text-white'
+                            onClick={handleLogout}>
                             LOGOUT
                         </button>
                     </div>

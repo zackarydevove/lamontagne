@@ -4,6 +4,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { useState } from 'react'
 import OpenNav from './OpenNav'
+import { Link } from 'react-router-dom'
 
 interface User {
     id: number;
@@ -41,12 +42,12 @@ function Navbar(): JSX.Element {
                                 <div className='flex items-center text-xl hover:text-gray-700'>Sell</div>
                             </div>
                         </a>
-                        <a href='/buy' className='w-full block relative'>
+                        <a href='/' className='w-full block relative'>
                             <div className='flex justify-between'>
                                 <div className='flex items-center text-xl hover:text-gray-700'>Buy</div>
                             </div>
                         </a>
-                        <a href='/rent' className='w-full block relative'>
+                        <a href='/' className='w-full block relative'>
                             <div className='flex justify-between'>
                                 <div className='flex items-center text-xl hover:text-gray-700'>Rent</div>
                             </div>
@@ -67,15 +68,15 @@ function Navbar(): JSX.Element {
                 </div>
 
                 <div className='flex items-center h-full'>
-                    <a href={`/favorites/${user}`}
+                    <a href={`/profile/${user}`}
                         className='flex h-full items-center font-bold hover:text-gray-700'>
                         <AiOutlineHeart size={'2em'}/>
-                        <p className='hidden xl:block text-xl pr-5 pl-2'>My favorites</p>
+                        <p className='hidden xl:block text-lg pr-5 pl-2'>My favorites</p>
                     </a>
                     <a href={`/profile/${user}`}
                         className='hidden xl:flex h-full items-center font-bold bg-gray-500 p-5 bg-gradient-to-b from-[#1abcfa] via-[#65deee] to-[#9af6e6] hover:text-gray-700'>
                         <FaUser size={'1.8em'} />
-                        <p className='text-xl pl-2'> My account</p>
+                        <p className='text-lg pl-2'> My account</p>
                     </a>
                 </div>
 

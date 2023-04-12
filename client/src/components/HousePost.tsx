@@ -1,13 +1,10 @@
 import React from 'react';
-import { AiFillHeart } from 'react-icons/ai';
 
 function HousePost(): JSX.Element {
   return (
     <div className='flex flex-col w-[360px] h-[400px] shadow-[0px_0px_2px_0px_rgba(0,0,0,0.2)]'>
       {/* Top image */}
-      <div className='w-full h-1/2 bg-homebg bg-cover bg-center relative'>
-        <AiFillHeart size={'1.8em'} className='text-red-500 absolute top-2 right-2 hover:cursor-pointer'/>
-      </div>
+      <div className='w-full h-1/2 bg-homebg bg-cover bg-center relative'/>
       {/* Bottom information */}
       <div className='flex-grow flex flex-col justify-around p-5 bg-[#f5f9fc]'>
         <div className='flex justify-between'>

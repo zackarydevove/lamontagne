@@ -13,6 +13,7 @@ module.exports = {
         'logo1': 'url("./images/logo1.png")',
         'logo2': 'url("./images/logo2.png")',
         'profileModify': 'url("./images/profileModify.png")',
+        'sellbg': 'url("./images/sellbg.jpg")',
       }
     },
   },

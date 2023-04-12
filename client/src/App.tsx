@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Profile/Login";
 import Register from "./pages/Profile/Register";
+import Sell from "./pages/Sell/Sell";
 
 function App(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ function App(): JSX.Element {
         <Route path ='/profile' element={<Profile />}/>
         <Route path ='/register' element={<Register/>}/>
         <Route path ='/login' element={<Login />}/>
+        <Route path ='/sell' element={<Sell />}/>
       </Routes>
     </Router>  
   );
