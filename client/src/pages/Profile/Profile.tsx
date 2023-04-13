@@ -6,7 +6,9 @@ import MyProfile from '../../components/Profile/MyProfile';
 import MySell from '../../components/Profile/MyListings';
 import MyFavorites from '../../components/Profile/MyFavorites';
 import { useNavigate } from 'react-router-dom';
-import { getUser } from '../../api/auth';
+import { useSelector } from 'react-redux';
+import { setUser } from '../../reducers/userSlice';
+import { RootState } from '../../store/store';
 
 type SelectedTab = 'profile' | 'favorite' | 'listing'
 
@@ -17,24 +19,17 @@ interface Props {
 
 function Profile(props: Props): JSX.Element {
     const [selected, setSelected] = useState<SelectedTab>(props.preSelected || 'profile');
-    const [user, setUser] = useState({});
+    const user = useSelector((state: RootState) => state.user.user);
 
     const navigate = useNavigate();
+    
+    console.log('user in profile:', user);
 
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const res: {user: object, message: string} | null = await getUser();
-                if (res?.message !== 'User found') {
-                    navigate('/login');
-                } else {
-                    setUser(res.user);
-                }
-            } catch (err) {
-                console.log(err);
-            }
+        if (!user) {
+          navigate('/login');
         }
-    }, [])
+    }, [user])
 
     const renderSearchComponent = () => {
         switch (selected) {
@@ -54,6 +49,8 @@ function Profile(props: Props): JSX.Element {
         navigate('/');
       }
 
+
+
   return (
     <div> 
         <div className='h-screen flex flex-col '>
@@ -64,7 +61,8 @@ function Profile(props: Props): JSX.Element {
                 <div className='w-80 h-full bg-[#143d8a] flex-shrink-0'>
                     <div className='h-1/3 flex justify-center items-center gap-1 text-white'>
                         <p className='text-2xl'>Hello</p>
-                        <p className='text-2xl font-bold'>Demo</p>
+                        {/* <p className='text-2xl font-bold'>Demo</p> */}
+                        <p className='text-2xl font-bold'>{user ? user.firstname : 'Loading'}</p>
                     </div>
 
 

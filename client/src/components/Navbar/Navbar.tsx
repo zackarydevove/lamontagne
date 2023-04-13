@@ -68,12 +68,12 @@ function Navbar(): JSX.Element {
                 </div>
 
                 <div className='flex items-center h-full'>
-                    <a href={`/profile/${user}`}
+                    <a href={`/profile`}
                         className='flex h-full items-center font-bold hover:text-gray-700'>
                         <AiOutlineHeart size={'2em'}/>
                         <p className='hidden xl:block text-lg pr-5 pl-2'>My favorites</p>
                     </a>
-                    <a href={`/profile/${user}`}
+                    <a href={`/profile`}
                         className='hidden xl:flex h-full items-center font-bold bg-gray-500 p-5 bg-gradient-to-b from-[#1abcfa] via-[#65deee] to-[#9af6e6] hover:text-gray-700'>
                         <FaUser size={'1.8em'} />
                         <p className='text-lg pl-2'> My account</p>

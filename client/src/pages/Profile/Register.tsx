@@ -6,6 +6,15 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { register } from '../../api/auth'
 import { getToken } from '../../utils/getToken';
+import { setUser } from '../../reducers/userSlice';
+import { useDispatch } from 'react-redux';
+import { User } from '../../types/userType';
+
+interface RegisterResponse {
+    user: User,
+    message: string,
+    token: string,
+}
 
 function Register(): JSX.Element {
     const [firstname, setFirstname] = useState<string>('');
@@ -17,11 +26,10 @@ function Register(): JSX.Element {
     const [checkbox, setCheckbox] = useState<boolean> (false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    /*
-        If user already have a JWT stored in his browser
-        Then redirect him directly to his profile
-    */
+    // If user already have a JWT stored in his browser
+    // Then redirect him directly to his profile
     useEffect(() => {
         const token: string | null = getToken();
         console.log('token:', token);
@@ -30,17 +38,24 @@ function Register(): JSX.Element {
         }
     }, []);
 
+    // onClick, try to register the user
+    // if successfull, setUser information in the slice and redirect him to his profile
+    // Else if an error occured, show the error
     const handleClick = async () => {
         if (!checkbox) {
             setError('Please accept the terms if you want to proceed')
             return ;
         }
         try {
-            const res: string | null = await register(firstname, lastname, email, password, confirmPassword);
-            if (res === 'User successfully created and authenticated') {
+            const res: RegisterResponse | null = await register(firstname, lastname, email, password, confirmPassword);
+            console.log('res in login:', res);
+            if (res && res.message === 'User successfully created and authenticated') {
+                if (res.user) {
+                    dispatch(setUser(res.user));
+                }
                 navigate('/profile')
             } else if (res) {
-                setError(res);
+                setError(res.message);
             }
         } catch (err) {
             console.error(err);

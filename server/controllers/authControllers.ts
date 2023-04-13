@@ -46,7 +46,7 @@ export const register = async (req: Request<{}, {}, RegisterRequestBody>, res: R
           });
           console.log(newUser, '\nnew user created:\n');
           const token = jwt.sign({ userId: newUser.user_id }, process.env.JWT_SECRET as string);
-          res.status(200).json({ token: token, message: 'User successfully created and authenticated' });
+          res.status(200).json({ user: newUser, token: token, message: 'User successfully created and authenticated' });
         } 
         else {
           res.status(401).json({ message: 'Password doesnt match' });
@@ -81,7 +81,7 @@ export const login = async (req: Request<{}, {}, LoginRequestBody>, res: Respons
       if (isMatch) {
         console.log(user, 'Successfully Authenticated');
         const token = jwt.sign({ userId: user.user_id }, process.env.JWT_SECRET as string);
-        res.status(200).json({ token: token, message: 'Successfully Authenticated' });
+        res.status(200).json({ user: user, token: token, message: 'Successfully Authenticated' });
       } else {
         console.log('Wrong password');
         res.status(401).json({ message: 'Authentication failed' });
@@ -91,7 +91,6 @@ export const login = async (req: Request<{}, {}, LoginRequestBody>, res: Respons
     res.status(500).json({ message: 'Internal server error' });
   }
 };
-
 
 export const getUser = async (req: Request, res: Response): Promise<void> => {
   const token = req.headers.authorization.split(' ')[1];

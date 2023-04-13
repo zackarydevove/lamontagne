@@ -4,8 +4,17 @@ import Footer from '../../components/Footer'
 import { RxCross2 } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { login, getUser } from '../../api/auth'
+import { login } from '../../api/auth'
 import { getToken } from '../../utils/getToken';
+import { setUser } from '../../reducers/userSlice';
+import { useDispatch } from 'react-redux';
+import { User } from '../../types/userType';
+
+interface LoginResponse {
+    user: User,
+    message: string,
+    token: string,
+}
 
 function Login(): JSX.Element {
     const [email, setEmail] = useState<string>('');
@@ -13,28 +22,32 @@ function Login(): JSX.Element {
     const [error, setError] = useState<string>('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    /*
-        If user already have a JWT stored in his browser
-        Then redirect him directly to his profile
-    */
+    // If user already have a JWT stored in his browser
+    // Then redirect him directly to his profile
     useEffect(() => {
         const token: string | null = getToken();
-        console.log('token:', token);
         if (token) {
             navigate('/profile');
         }
       }, []);
 
+    // onClick, try to login the user
+    // if successfull, setUser information in the slice and redirect him to his profile
+    // Else if an error occured, show the error
     const handleClick = async () => {
         try {
-            const res: string | null = await login(email, password);
-            if (res === 'Successfully Authenticated') {
+            const res: LoginResponse | null = await login(email, password);
+            console.log('res in login:', res);
+            if (res && res.message === 'Successfully Authenticated') {
+                if (res.user) {
+                    dispatch(setUser(res.user));
+                }
                 navigate('/profile')
             } else if (res) {
-                setError(res);
+                setError(res.message);
             }
-            console.log(res);
         } catch (err) {
             console.error(err);
         }

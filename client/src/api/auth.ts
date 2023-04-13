@@ -1,16 +1,28 @@
 import axios from "axios";
 import { getToken } from "../utils/getToken";
+import { User } from '../types/userType';
 
 const API_URL:string = `http://localhost:5000/api/auth`;
 console.log('API_URL:', API_URL);
+
+interface LoginRegisterResponse {
+    user: User,
+    message: string,
+    token: string,
+}
+
+interface getUserResponse {
+    user: User,
+    message: string,
+  }
 
 /**
  * Authenticates a user with the provided email and password.
  * @param email - The user's email address.
  * @param password - The user's password.
- * @returns A Promise that resolves to a success message string if the login is successful, or null if there's an error.
+ * @returns A Promise that resolves to an object with user, JWT and success message string if the registration is successful, or null if there's an error.
  */
-export const login = async (email: string, password: string ): Promise<string | null> => {
+export const login = async (email: string, password: string): Promise<LoginRegisterResponse | null> => {
     try {
         const res = await axios.post(`${API_URL}/login`, {
             email,
@@ -20,7 +32,7 @@ export const login = async (email: string, password: string ): Promise<string | 
         });
 
         localStorage.setItem('jwtToken', res.data.token);
-        return res.data.message;
+        return res.data;
     } catch (err) {
         console.error(err);
         return null;
@@ -34,15 +46,15 @@ export const login = async (email: string, password: string ): Promise<string | 
  * @param confirmPassword - The user's password confirmation.
  * @param firstname - The user's first name.
  * @param lastname - The user's last name.
- * @returns A Promise that resolves to a success message string if the registration is successful, or null if there's an error.
+ * @returns A Promise that resolves to an object with user, JWT and success message string if the registration is successful, or null if there's an error.
  */
 export const register = async (
     email: string, 
     password: string, 
     confirmPassword: string, 
     firstname: string, 
-    lastname: string
-    ): Promise<string | null> => {
+    lastname: string,
+    ): Promise< LoginRegisterResponse | null> => {
     try {
         const res = await axios.post(`${API_URL}/register`, {
             email, 
@@ -54,7 +66,7 @@ export const register = async (
             withCredentials: true
         });
         localStorage.setItem('jwtToken', res.data.token);
-        return (res.data.message);
+        return (res.data);
     } catch (err) {
         console.error(err);
         return null;
@@ -63,18 +75,16 @@ export const register = async (
 
 /**
  * Get current logged in user informations.
- * @param Authorization: `Bearer ${getToken()} - The user JWT.
+ * @headers Authorization: `Bearer ${getToken()}` - The user JWT.
  * @returns A Promise that resolves to the user informations in json format if the user has a JWT, or null if there's an error.
  */
-export const getUser = async (): Promise< {user: object, message: string} | null> => {
+export const getUser = async (): Promise< User | null> => {
     try {
         const res = await axios.get(`${API_URL}/getUser`, {
-            headers: {
-                Authorization: `Bearer ${getToken()}`
-            },
+            headers: { Authorization: `Bearer ${getToken()}` },
             withCredentials: true,
-        })
-        return (res.data);
+        });
+        return (res.data.user);
     } catch (err) {
         console.error(err);
         return null;

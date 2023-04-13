@@ -1,6 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { useState, useEffect } from 'react';
 
 function MyProfile(): JSX.Element {
+    const [firstname, setFirstname] = useState<string | undefined>('');
+    const [lastname, setLastname] = useState<string | undefined>('');
+    const [number, setNumber] = useState<string>('');
+    const [email, setEmail] = useState<string | undefined>('');
+    const [password, setPassword] = useState<string>('');
+    
+    const user = useSelector((state: RootState) => state.user.user);
+
+    useEffect(() => {
+        setFirstname(user?.firstname);
+        setLastname(user?.lastname);
+        setEmail(user?.email);
+    }, [user]);
+
   return (
     <div className='h-full flex flex-col'>
         {/* top */}
@@ -29,23 +46,38 @@ function MyProfile(): JSX.Element {
                 {/* Inputs */}
                 <div className='flex flex-col gap-4'>
                     <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                        <input type='text' min='0' placeholder='Last name'
+                        <input type='text'
+                            value={lastname}
+                            onChange={(e) => setLastname(e.target.value)}
+                            placeholder='Last name'
                             className='bg-[#f5f9fc] outline-none flex-grow'/>
                     </div>
                     <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                        <input type='text' min='0' placeholder='First name'
+                        <input type='text'
+                            value={firstname}
+                            onChange={(e) => setFirstname(e.target.value)}
+                            placeholder='First name'
                             className='bg-[#f5f9fc] outline-none flex-grow'/>
                     </div>
                     <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                        <input type='text' min='0' placeholder='Number phone'
+                        <input type='text' 
+                            value={number}
+                            onChange={(e) => setNumber(e.target.value)}
+                            placeholder='Number phone'
                             className='bg-[#f5f9fc] outline-none flex-grow'/>
                     </div>
                     <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                        <input type='text' min='0' placeholder='Email'
+                        <input type='text'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder='Email'
                             className='bg-[#f5f9fc] outline-none flex-grow'/>
                     </div>
                     <div className='h-[60px] w-full bg-[#f5f9fc] flex items-center px-5'>
-                        <input type='text' min='0' placeholder='Password'
+                        <input type='text'
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder='Password'
                             className='bg-[#f5f9fc] outline-none flex-grow'/>
                     </div>
                 </div>
