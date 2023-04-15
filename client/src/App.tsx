@@ -6,6 +6,7 @@ import Login from "./pages/Profile/Login";
 import Register from "./pages/Profile/Register";
 import Sell from "./pages/Sell/Sell";
 import Listing from "./pages/House/Listing";
+import List from "./pages/Sell/List/List";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "./reducers/userSlice";
@@ -35,6 +36,7 @@ function App(): JSX.Element {
         <Route path ='/register' element={<Register/>}/>
         <Route path ='/login' element={<Login />}/>
         <Route path ='/sell' element={<Sell />}/>
+        <Route path='/sell/list' element={<List />}/>
         <Route path='/post' element={<Listing />}/>
       </Routes>
     </Router>  
