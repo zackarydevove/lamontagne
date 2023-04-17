@@ -30,13 +30,13 @@ function Step3() {
                     <p className='text-[#143d8a] font-bold text-2xl'>Nombre de pieces</p>
                     <p className='pt-2 text-gray-500 text-lg'>La cuisine, la salle de bain et les toilettes ne sont pas à prendre en compte</p>
                     <div className='pt-4 flex gap-2'>
-                        <div className='w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
-                            onClick={() => setRooms(prev => prev - 1)}>+</div>
+                        <div className='text-2xl   w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
+                            onClick={() => setRooms(prev => prev - 1)}>-</div>
                         <input className='bg-[#f5f9fc] text-center outline-none'
                                 type='number'
                                 value={rooms}
                                 onChange={(e) => setRooms(Number(e.target.value))}></input>
-                        <div className='w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
+                        <div className='text-2xl   w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
                             onClick={() => setRooms(prev => prev + 1)}>+</div>
                     </div>
                 </div>
@@ -44,13 +44,13 @@ function Step3() {
                     <p className='text-[#143d8a] font-bold text-2xl'>Nombre de chambres</p>
                     <p className='pt-2 text-gray-500 text-lg'>Pour être comptabiliser, les chambres doivent faire 8m² minimum</p>
                     <div className='pt-4 flex gap-2'>
-                        <div className='w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
+                        <div className='text-2xl   w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
                             onClick={() => setBedrooms(prev => prev - 1)}>-</div>
                         <input className='bg-[#f5f9fc] text-center outline-none'
                                 type='number'
                                 value={bedrooms}
                                 onChange={(e) => setBedrooms(Number(e.target.value))}></input>
-                        <div className='w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
+                        <div className='text-2xl  w-12 h-12 flex justify-center items-center bg-[#1c5eeb] text-white rounded-full p-4 hover:cursor-pointer'
                             onClick={() => setBedrooms(prev => prev + 1)}>+</div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ function Step3() {
                                         hover:bg-[#009ee3] hover:text-white'>
                         PREV
                 </button>
-                <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold
+                <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold transition
                                         hover:bg-[#009ee3] hover:text-white'>
                         NEXT
                 </button>

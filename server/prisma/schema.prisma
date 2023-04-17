@@ -19,6 +19,7 @@ model User {
 
 model House {
   house_id      Int       @id @default(autoincrement())
+  address       String
   type          String
   price         Int
   squaremetter  Int

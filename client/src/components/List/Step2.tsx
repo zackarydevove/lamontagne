@@ -19,12 +19,12 @@ return (
           <p className='pt-5 text-gray-500 font-bold'>Please choose the type of your property</p>
           
           <div className='pt-5 flex gap-10'>
-            <div className={`w-[220px] h-[220px] border-2 flex flex-col justify-end p-7 items-center gap-5 hover:cursor-pointer ${type === 'House' ? 'border-[#143d8a] text-[#143d8a]' : null}`}
+            <div className={`w-[220px] h-[220px] border-2 flex flex-col justify-end p-7 items-center gap-5 hover:cursor-pointer transition ${type === 'House' ? 'border-[#143d8a] text-[#143d8a]' : null}`}
               onClick={() => setType('House')}>
               <BsFillHouseDoorFill className='w-full h-full'/>
               <p>House</p>
             </div>
-            <div className={`w-[220px] h-[220px] border-2 flex flex-col justify-end p-7 items-center gap-5 hover:cursor-pointer ${type === 'Apartment' ? 'border-[#143d8a] text-[#143d8a]' : null}`}
+            <div className={`w-[220px] h-[220px] border-2 flex flex-col justify-end p-7 items-center gap-5 hover:cursor-pointer transition ${type === 'Apartment' ? 'border-[#143d8a] text-[#143d8a]' : null}`}
               onClick={() => setType('Apartment')}>
               <BsFillBuildingFill className='w-full h-full'/>
               <p>Apartment</p>
@@ -37,11 +37,11 @@ return (
           </div>
 
           <div className='pt-20 flex justify-between'>
-              <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#979797] via-[#AEAEAE] to-[#C5C5C5] text-white font-bold
+              <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#979797] via-[#AEAEAE] to-[#C5C5C5] text-white font-bold transition
                                       hover:bg-[#009ee3] hover:text-white'>
                       PREV
               </button>
-              <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold
+              <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#1abcfa] via-[#65deee] to-[#9af6e6] text-[#013c84] font-bold transition
                                       hover:bg-[#009ee3] hover:text-white'>
                       NEXT
               </button>

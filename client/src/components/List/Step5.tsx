@@ -1,41 +1,34 @@
 import React from 'react'
 import { useState } from 'react'
+import { AiFillPicture } from 'react-icons/ai'
 
-// Price, Description
-function Step4() {
-  const [msquare, setMsquare] = useState<number>(0);
-  const [rooms, setRooms] = useState<number>(0);
-  const [bedrooms, setBedrooms] = useState<number>(0);
-  const [price, setPrice] = useState<number>(0);
-  const [description, setDescription] = useState<string>('');
+// Pictures
+function Step5() {
+    const [type, setType] = useState<string>('');
+    const [msquare, setMsquare] = useState<number>(0);
+    const [rooms, setRooms] = useState<number>(0);
+    const [bedrooms, setBedrooms] = useState<number>(0);
 
   return (
     <div className='flex-grow flex'>
       {/* Left */}
       <div className='w-1/2 h-full p-20'>
-            <h1 className='pb-10 text-[#143d8a] font-bold text-5xl'>Details of your property</h1>
-            <div className='pt-7'>
-                    <p className='text-[#143d8a] font-bold text-2xl'>Description</p>
-                    <p className='py-2 text-gray-500 text-lg'>La cuisine, la salle de bain et les toilettes ne sont pas à prendre en compte</p>
-                    <textarea className='bg-[#f5f9fc] w-full h-36 p-3 outline-none'></textarea>
-            </div>
-            <div className='pt-7 w-1/2'>
-              <p className='pb-3 text-[#143d8a] font-bold text-2xl'>Price</p>
-              <div className='p-3 flex bg-[#f5f9fc]'>
-                  <input className='flex-grow bg-[#f5f9fc] outline-none'
-                        type='number'
-                        value={price}
-                        onChange={(e) => setPrice(Number(e.target.value))}></input>
-                  <p>$</p>
-              </div>
-            </div>
-
-            <div className='pt-20'>
-                <hr />
-            </div>
+            <h1 className='pb-20 text-[#143d8a] font-bold text-5xl'>Pictures</h1>
+            <p className='pt-5 text-gray-500 font-bold'>Please add pictures of your property</p>
             
+            <div className='pt-5 flex gap-10'>
+                <div className='relative w-[220px] h-[220px] border-2 flex flex-col justify-end p-7 items-center gap-5 hover:cursor-pointer transition'>
+                <AiFillPicture className='text-gray-500 w-full h-full relative'/>
+                </div>
+            </div>
+  
+  
+            <div className='pt-20'>
+              <hr />
+            </div>
+  
             <div className='pt-20 flex justify-between'>
-                <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#979797] via-[#AEAEAE] to-[#C5C5C5] text-white font-bold
+                <button className='py-2 px-8 rounded-3xl bg-gradient-to-r from-[#979797] via-[#AEAEAE] to-[#C5C5C5] text-white font-bold transition
                                         hover:bg-[#009ee3] hover:text-white'>
                         PREV
                 </button>
@@ -45,7 +38,6 @@ function Step4() {
                 </button>
             </div>
       </div>
-
       {/* Right */}
       <div className='w-1/2 h-full p-20 bg-[#f5f9fc]'>
       <h1 className='pb-20 text-[#143d8a] font-bold text-4xl'>Your property</h1>
@@ -63,10 +55,10 @@ function Step4() {
             <p className='text-gray-500 font-bold'>{bedrooms} bedrooms </p>
         </div>
       </div>
-
+  
       </div>
     </div>
   )
 }
 
-export default Step4
+export default Step5
